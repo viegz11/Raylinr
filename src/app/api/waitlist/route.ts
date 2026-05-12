@@ -67,14 +67,14 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Redlinr <hello@redlinr.com>',
+        from: 'Raylinr <hello@raylinr.com>',
         to: email,
-        subject: "You're on the Redlinr waitlist 🎉",
+        subject: "You're on the Raylinr waitlist 🎉",
         html: `
           <p>Hi there,</p>
-          <p>You're on the list for <strong>Redlinr</strong> — AI-powered contract comparison.</p>
+          <p>You're on the list for <strong>Raylinr</strong> — AI-powered contract comparison.</p>
           <p>We'll reach out when early access opens. Expect to hear from us soon.</p>
-          <p>— The Redlinr team</p>
+          <p>— The Raylinr team</p>
         `
       })
     })

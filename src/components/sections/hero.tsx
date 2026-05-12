@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Zap, FileText, Lock, Play } from "lucide-react";
 import Link from "next/link";
+import WaitlistForm from "@/components/WaitlistForm";
 
 export function Hero() {
   return (
@@ -48,20 +49,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col items-center justify-center gap-4"
           >
-            <Link
-              href="#waitlist"
-              className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-brand-text-primary rounded-xl font-bold text-lg hover:bg-brand-accent/90 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              Join Waitlist <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="#demo"
-              className="w-full sm:w-auto px-8 py-4 glass text-brand-text-primary rounded-xl font-bold text-lg hover:bg-black/5 transition-all flex items-center justify-center gap-2"
-            >
-              <Play className="w-5 h-5" /> See Demo
-            </Link>
+            <WaitlistForm source="hero" />
+            
+            <div className="mt-4">
+              <Link
+                href="#demo"
+                className="w-full sm:w-auto px-8 py-3 glass text-brand-text-primary rounded-xl font-bold text-base hover:bg-black/5 transition-all flex items-center justify-center gap-2"
+              >
+                <Play className="w-4 h-4" /> Watch Demo
+              </Link>
+            </div>
           </motion.div>
 
           {/* Trust Chips */}

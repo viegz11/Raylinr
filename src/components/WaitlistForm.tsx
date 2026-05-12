@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 interface FormState {
   status: 'idle' | 'loading' | 'success' | 'error'
@@ -44,83 +43,74 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
 
   if (form.status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-brand-success/10 border border-brand-success/20 rounded-2xl text-center">
-        <CheckCircle2 className="w-16 h-16 text-brand-success mb-4" />
-        <h3 className="text-xl font-bold text-brand-text-primary mb-2">You're on the list!</h3>
-        <p className="text-brand-text-secondary">{form.message}</p>
+      <div className="flex flex-col items-center gap-3 py-6 text-center">
+        <div className="text-4xl">🎉</div>
+        <p className="text-lg font-semibold text-brand-text-primary">{form.message}</p>
+        <p className="text-sm text-brand-text-secondary">
+          Early access opens soon. We'll email you directly.
+        </p>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full">
-      {/* Email */}
-      <div>
-        <label htmlFor={`email-${source}`} className="sr-only">Work Email</label>
-        <input
-          type="email"
-          id={`email-${source}`}
-          required
-          placeholder="Work email *"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="w-full bg-white border border-black/10 rounded-xl px-4 py-3.5 text-brand-text-primary placeholder:text-brand-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all"
-        />
-      </div>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-md mx-auto relative z-20">
+      <input
+        type="email"
+        placeholder="Work email *"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        required
+        className="w-full bg-white dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3.5 text-brand-text-primary placeholder:text-brand-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all"
+      />
 
-      <div className="grid grid-cols-2 gap-4">
-        {/* Company */}
-        <div>
-          <label htmlFor={`company-${source}`} className="sr-only">Company Name</label>
-          <input
-            type="text"
-            id={`company-${source}`}
-            placeholder="Company name"
-            value={company}
-            onChange={e => setCompany(e.target.value)}
-            className="w-full bg-white border border-black/10 rounded-xl px-4 py-3.5 text-brand-text-primary placeholder:text-brand-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all"
-          />
-        </div>
+      <input
+        type="text"
+        placeholder="Company name"
+        value={company}
+        onChange={e => setCompany(e.target.value)}
+        className="w-full bg-white dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3.5 text-brand-text-primary placeholder:text-brand-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all"
+      />
 
-        {/* Role */}
-        <div>
-          <label htmlFor={`role-${source}`} className="sr-only">Role</label>
-          <select
-            id={`role-${source}`}
-            value={role}
-            onChange={e => setRole(e.target.value)}
-            className="w-full bg-white border border-black/10 rounded-xl px-4 py-3.5 text-brand-text-primary focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all appearance-none"
-          >
-            <option value="" className="text-brand-text-secondary">Your role</option>
-            <option value="Sales Director / VP Sales">Sales Director / VP Sales</option>
-            <option value="Procurement Manager">Procurement Manager</option>
-            <option value="In-House Counsel">In-House Counsel</option>
-            <option value="Founder / CEO">Founder / CEO</option>
-            <option value="Operations">Operations</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-      </div>
+      <select
+        value={role}
+        onChange={e => setRole(e.target.value)}
+        className="w-full bg-white dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3.5 text-brand-text-primary placeholder:text-brand-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all appearance-none"
+      >
+        <option value="" className="dark:bg-gray-900">Your role</option>
+        <option value="Sales Director / VP Sales" className="dark:bg-gray-900">Sales Director / VP Sales</option>
+        <option value="Procurement Manager" className="dark:bg-gray-900">Procurement Manager</option>
+        <option value="In-House Counsel" className="dark:bg-gray-900">In-House Counsel</option>
+        <option value="Founder / CEO" className="dark:bg-gray-900">Founder / CEO</option>
+        <option value="Operations" className="dark:bg-gray-900">Operations</option>
+        <option value="Other" className="dark:bg-gray-900">Other</option>
+      </select>
 
-      {/* Error Message */}
       {form.status === 'error' && (
-        <div className="text-brand-risk text-sm text-center font-medium">
-          {form.message}
-        </div>
+        <p className="text-brand-risk text-sm text-center">{form.message}</p>
       )}
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={form.status === 'loading' || !email}
-        className="w-full bg-brand-text-primary text-brand-bg rounded-xl font-bold text-lg py-4 hover:bg-brand-text-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]"
+        className="w-full bg-brand-text-primary text-brand-bg rounded-xl font-bold text-lg py-4 hover:bg-brand-text-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl relative overflow-hidden"
       >
         {form.status === 'loading' ? (
-          <div className="w-6 h-6 border-2 border-brand-bg border-t-transparent rounded-full animate-spin" />
+          <span className="flex items-center justify-center gap-2">
+            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+            </svg>
+            Joining…
+          </span>
         ) : (
-          <>Join Waitlist <ArrowRight className="w-5 h-5" /></>
+          'Join Waitlist →'
         )}
       </button>
+
+      <p className="text-center text-xs text-brand-text-secondary mt-2">
+        No spam. Early access priority for SaaS sales teams.
+      </p>
     </form>
   )
 }
