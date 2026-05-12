@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --color-brand-bg: #F5F4F2;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-text-primary: #0D1117;
+  --color-brand-text-secondary: #4B5563;
+  --color-brand-accent: #C0392B;
+  --color-brand-accent-secondary: #C0392B;
+  --color-brand-success: #27500A;
+  --color-brand-risk: #791F1F;
+  --color-brand-warning: #854F0B;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-brand-bg: #0D1117;
+    --color-brand-surface: #161B22;
+    --color-brand-text-primary: #F5F4F2;
+    --color-brand-text-secondary: #9CA3AF;
+    --color-brand-accent: #E74C3C;
+    --color-brand-accent-secondary: #E74C3C;
+    --color-brand-success: #4ADE80;
+    --color-brand-risk: #F87171;
+    --color-brand-warning: #FBBF24;
+
+    --glass-bg: rgba(13, 17, 23, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@theme {
+  --color-brand-bg: var(--color-brand-bg);
+  --color-brand-surface: var(--color-brand-surface);
+  --color-brand-accent: var(--color-brand-accent);
+  --color-brand-accent-secondary: var(--color-brand-accent-secondary);
+  --color-brand-text-primary: var(--color-brand-text-primary);
+  --color-brand-text-secondary: var(--color-brand-text-secondary);
+  --color-brand-success: var(--color-brand-success);
+  --color-brand-risk: var(--color-brand-risk);
+  --color-brand-warning: var(--color-brand-warning);
+  
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: var(--color-brand-bg);
+  --foreground: var(--color-brand-text-primary);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities for glassmorphism and gradients */
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@utility text-gradient {
+  background: linear-gradient(to right, var(--color-brand-text-primary), var(--color-brand-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-accent {
+  background: linear-gradient(to right, var(--color-brand-accent), #992D22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

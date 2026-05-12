@@ -1,0 +1,185 @@
+## Redlinr B2B SaaS Positioning
+
+---
+
+### 1. Primary ICP: Sales Directors at B2B SaaS Companies (50–500 employees)
+
+**Why this segment, not Legal Ops?**
+
+Legal Ops is the *power user*, but Sales Directors are the *economic buyer in disguise*. They feel contract delays in their compensation, their quota, and their board conversations. A Legal Ops manager optimizes a process; a Sales Director is bleeding a deal. The urgency and willingness to pay live here.
+
+Specifically: Sales Directors managing **5–20 active deals** at any time, at companies where legal review is a **1–2 person bottleneck** — not a 20-lawyer firm. These are the orgs where "send it to legal" means a 3–5 day black hole before a redline comes back with no explanation.
+
+---
+
+### 2. Core Problem (Real-World, Specific)
+
+A prospect sends back a redlined MSA on a Thursday. The Sales Director can't tell if the changes are standard pushback or a legal landmine. They forward it to their one in-house counsel, who is juggling 12 other things. The deal sits. The champion goes cold. The quarter-end push arrives and the contract *still* isn't signed.
+
+The problem isn't "contract review is slow." It's more precise than that:
+
+> **Sales Directors can't triage contract risk themselves, so every redline becomes a full legal escalation — and deals stall at the finish line.**
+
+They don't need to *replace* legal. They need to know: *Is this worth escalating? What changed? What should I push back on first?*
+
+---
+
+### 3. Positioning Statement
+
+**For Sales Directors at mid-market B2B SaaS companies who lose deals in the final stretch because redlined contracts sit unreviewed, Redlinr instantly surfaces what changed, what's risky, and what needs legal attention — so reps can keep deals moving without becoming lawyers.**
+
+---
+
+### 4. Three Differentiated Value Props
+
+**① "Know before you escalate"**
+Redlinr gives Sales Directors a plain-English change summary the moment a redline lands — liability shifts, payment term changes, IP ownership clauses flagged with severity levels. They can walk into the legal conversation already knowing what matters, instead of asking legal to explain the whole document from scratch. This cuts the *back-and-forth* cycle, not just the review time.
+
+**② "Institutional memory on every clause"**
+Most contract tools compare Document A to Document B in isolation. Redlinr benchmarks incoming redlines against your *own signed contracts* — showing when a prospect's ask is something you've already accepted elsewhere, or a term you've never agreed to in 3 years of deals. Sales Directors stop negotiating from ignorance; they negotiate from precedent.
+
+**③ "Deal velocity as a measurable metric"**
+Redlinr tracks where in the contract stage deals are stalling, how many rounds of redlines a deal typically takes, and which clause categories cause the most friction. Sales Directors get a heat map of their contracting bottlenecks — something no CLM or redlining tool currently surfaces at the rep level. This turns contract review from a legal function into a *revenue operations* conversation.
+
+---
+
+### 5. What Makes Redlinr Different
+
+| | Legacy CLMs (Ironclad, Docusign CLM) | AI Drafting Tools (Harvey, Spellbook) | **Redlinr** |
+|---|---|---|---|
+| **Primary user** | Legal teams | Lawyers | Sales + Legal together |
+| **Core action** | Store & workflow contracts | Draft & suggest language | Compare, triage & explain |
+| **Speed to value** | Weeks (implementation) | Requires legal training | Instant on first upload |
+| **Sales rep usable?** | No — built for counsel | No — requires legal context | Yes — plain English output |
+| **Benchmarks against your history?** | Rarely, requires setup | No | Core feature |
+| **Revenue ops visibility** | No | No | Yes |
+
+The key insight competitors miss: **the person who needs contract intelligence most urgently is not the person reviewing the contract.** It's the Sales Director watching a deal go quiet. Redlinr is the first contract tool designed for that moment — not the drafting room, not the repository, but the *gap between legal and revenue*.
+
+
+
+
+
+
+
+
+
+
+## Redlinr Homepage Copy
+
+---
+
+### 1. Headline
+
+**Know exactly what changed in every contract — before legal even opens it.**
+
+*Alt A (revenue angle):* **Stop losing deals to contracts that sit unread for 5 days.**
+*Alt B (risk angle):* **The redline came back. Do you know what they changed?**
+
+The primary headline wins because it speaks to the *moment of dread* both Sales Directors and Legal Ops share — the inbox notification of a returned contract that could mean anything.
+
+---
+
+### 2. Subheadline
+
+**Redlinr reads every redlined contract in seconds, flags what's risky, and tells your team exactly what needs attention — so deals close faster and nothing slips through.**
+
+> The word "slips through" is doing deliberate work here. It activates *both* the revenue fear (deal falls apart) and the legal fear (bad term gets signed). One subheadline, two ICPs addressed.
+
+---
+
+### 3. Three Key Benefits
+
+---
+
+**① You get a redline back on Friday at 4pm. You know what it means by 4:01.**
+
+Upload any redlined contract and Redlinr gives you a plain-English summary of every change — what moved, what was added, what was deleted — ranked by risk level. No legal degree required. No waiting until Monday.
+
+*For Sales Directors who need to keep deal momentum alive over the weekend.*
+
+---
+
+**② "Is this term normal?" — answered instantly, with your own history as proof.**
+
+Redlinr benchmarks incoming contract changes against your past signed agreements. If a prospect is pushing for net-90 payment terms and you've never accepted beyond net-45 in three years of deals, you'll know before you reply to their email.
+
+*Stop negotiating from gut instinct. Negotiate from precedent.*
+
+---
+
+**③ Legal spends time on the 2 contracts that need them — not all 12.**
+
+When every redline gets escalated to counsel regardless of complexity, your legal team becomes a bottleneck by default. Redlinr pre-triages incoming contracts so Legal only touches what genuinely requires their expertise — unusual clauses, high-liability shifts, terms outside your standard playbook.
+
+*The result: faster turnaround, less burnout, no missed risk.*
+
+---
+
+### 4. Objection Handling
+
+---
+
+**"How do I know the AI won't miss something important?"**
+
+Redlinr doesn't replace your lawyer's judgment — it eliminates the noise before your lawyer gets involved. Every flag includes the exact clause, the original language, the changed language, and the reason for the risk rating. Nothing is summarized away. Your legal team sees everything Redlinr sees, presented clearly. They make the call. Redlinr just makes sure they're making it on the right things.
+
+---
+
+**"We already have a CLM / DocuSign / standard process."**
+
+Good. Redlinr works alongside what you have. It's not a repository, a workflow tool, or another system to implement. It's a single-purpose layer that sits between "contract received" and "legal review starts." Most teams are using it within the same day they sign up — no IT ticket required.
+
+---
+
+**"What about confidentiality? Our contracts are sensitive."**
+
+Redlinr does not train on your contracts. Documents are processed, analyzed, and returned — they are not stored or used to improve any model. Enterprise-grade encryption in transit and at rest. SOC 2 Type II compliant. Your NDA with your prospect stays between you and your prospect.
+
+> *If compliance certification is still in progress, replace the last sentence with:* "SOC 2 certification in progress — current security documentation available on request."
+
+---
+
+**"Our legal team will never trust an AI for this."**
+
+They don't have to trust it blindly — they just have to look at it. Redlinr shows its work: every risk flag links to the specific clause, with a plain explanation of why it was flagged. Most legal teams find that it catches the same things they would have caught, just faster. The ones who push back hardest tend to become the heaviest users.
+
+---
+
+### 5. CTA Options
+
+---
+
+**Primary CTA — for Sales-led motion:**
+> **See your next contract reviewed in 30 seconds.**
+> `→ Book a 15-minute demo`
+
+Avoid "Book a Demo" alone — it's friction without a promise. Pair it with a specific time commitment and a specific outcome.
+
+---
+
+**Secondary CTA — for self-serve / PLG motion:**
+> **Upload a contract. See what Redlinr finds.**
+> `→ Try it free — no account needed`
+
+The strongest trial CTA for this product is one that lets the user bring their *own* contract. The first "aha" moment is intensely personal — seeing *your* agreement flagged in plain English converts better than any demo.
+
+---
+
+**Soft CTA — for not-ready visitors:**
+> **See a sample contract review first.**
+> `→ View live example`
+
+Captures the skeptic who won't book a demo and won't upload a real contract. Give them a pre-loaded redlined MSA with Redlinr's output visible. Let the product speak before asking for anything.
+
+---
+
+**CTA Hierarchy Recommendation:**
+
+```
+Primary:    Book Demo        → Sales-qualified, decision-stage visitors
+Secondary:  Free Trial       → Self-serve, curious, PLG motion
+Tertiary:   Live Example     → Cold traffic, awareness stage
+```
+
+The worst thing this page can do is ask everyone to "Book a Demo" and lose the 60% of visitors who aren't ready for a sales conversation yet.

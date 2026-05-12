@@ -1,0 +1,224 @@
+
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .ds { font-family: var(--font-sans); padding: 1.5rem 0 2rem; }
+  .sec-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin: 0 0 14px; }
+  .section { margin-bottom: 2.5rem; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .swatch-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .swatch { height: 52px; border-radius: var(--border-radius-md); border: 0.5px solid rgba(0,0,0,0.08); display: flex; align-items: flex-end; padding: 6px 10px; }
+  .swatch-label { font-size: 11px; font-weight: 500; }
+  .swatch-hex { font-size: 10px; opacity: 0.7; font-family: var(--font-mono); }
+  .swatch-name { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+
+  .type-row { margin-bottom: 16px; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 16px; display: flex; align-items: baseline; gap: 24px; }
+  .type-meta { font-size: 11px; color: var(--color-text-tertiary); min-width: 140px; line-height: 1.6; }
+  .type-sample { color: var(--color-text-primary); }
+
+  .ui-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+  .ui-pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; margin-right: 6px; }
+  .pill-added { background: #EAF3DE; color: #27500A; }
+  .pill-removed { background: #FCEBEB; color: #791F1F; }
+  .pill-risk { background: #FAEEDA; color: #633806; }
+  .diff-line { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+  .diff-line:last-child { border-bottom: none; }
+  .diff-bar { width: 3px; border-radius: 2px; min-height: 18px; align-self: stretch; flex-shrink: 0; }
+  .bar-add { background: #639922; }
+  .bar-rem { background: #E24B4A; }
+  .bar-warn { background: #EF9F27; }
+  .diff-text { color: var(--color-text-primary); line-height: 1.55; }
+  .diff-clause { font-size: 11px; color: var(--color-text-tertiary); margin-top: 1px; }
+
+  .logo-area { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 2rem; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .logo-light { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .logo-mark-wrap { display: flex; align-items: center; gap: 10px; }
+  .logo-wordmark { font-size: 22px; font-weight: 500; letter-spacing: -0.5px; color: #0D1117; }
+  .logo-wordmark span { color: #C0392B; }
+  .logo-sub { font-size: 11px; color: var(--color-text-tertiary); text-align: center; margin-top: 4px; }
+
+  .logo-dark-bg { background: #0D1117; border-radius: var(--border-radius-lg); padding: 1.5rem 2rem; display: flex; align-items: center; gap: 10px; }
+  .logo-dark-word { font-size: 22px; font-weight: 500; letter-spacing: -0.5px; color: #F0F0F0; }
+  .logo-dark-word span { color: #E74C3C; }
+
+  .nav-mock { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 0 1.25rem; height: 48px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .nav-logo { font-size: 15px; font-weight: 500; letter-spacing: -0.3px; color: var(--color-text-primary); }
+  .nav-logo span { color: #C0392B; }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-link { font-size: 13px; color: var(--color-text-secondary); }
+  .nav-cta { font-size: 12px; font-weight: 500; background: #0D1117; color: #F0F0F0; padding: 6px 14px; border-radius: var(--border-radius-md); }
+
+  .principle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .principle { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+  .principle .p-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .principle .p-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+</style>
+
+<div class="ds">
+  <h2 class="sr-only">Redlinr brand design system covering color palette, typography, UI style direction, logo concept, and a sample UI component</h2>
+
+  <div class="section">
+    <p class="sec-label">Color palette</p>
+    <div class="row" style="margin-bottom: 10px;">
+      <div class="swatch-wrap" style="flex: 1; min-width: 80px;">
+        <div class="swatch" style="background: #0D1117;">
+          <div><div class="swatch-label" style="color:#F0F0F0;">Ink</div><div class="swatch-hex" style="color:#aaa;">#0D1117</div></div>
+        </div>
+        <div class="swatch-name">Primary text / dark surfaces</div>
+      </div>
+      <div class="swatch-wrap" style="flex: 1; min-width: 80px;">
+        <div class="swatch" style="background: #C0392B;">
+          <div><div class="swatch-label" style="color:#fff;">Signal red</div><div class="swatch-hex" style="color:#f8c;">#C0392B</div></div>
+        </div>
+        <div class="swatch-name">Brand accent / logo mark</div>
+      </div>
+      <div class="swatch-wrap" style="flex: 1; min-width: 80px;">
+        <div class="swatch" style="background: #F5F4F2; border: 0.5px solid #e0ddd8;">
+          <div><div class="swatch-label" style="color:#444;">Parchment</div><div class="swatch-hex" style="color:#888;">#F5F4F2</div></div>
+        </div>
+        <div class="swatch-name">Page background</div>
+      </div>
+      <div class="swatch-wrap" style="flex: 1; min-width: 80px;">
+        <div class="swatch" style="background: #27500A;">
+          <div><div class="swatch-label" style="color:#C0DD97;">Added</div><div class="swatch-hex" style="color:#9FE1CB;">#27500A</div></div>
+        </div>
+        <div class="swatch-name">Additions / new text</div>
+      </div>
+      <div class="swatch-wrap" style="flex: 1; min-width: 80px;">
+        <div class="swatch" style="background: #791F1F;">
+          <div><div class="swatch-label" style="color:#F7C1C1;">Removed</div><div class="swatch-hex" style="color:#F09595;">#791F1F</div></div>
+        </div>
+        <div class="swatch-name">Deletions / risk flags</div>
+      </div>
+      <div class="swatch-wrap" style="flex: 1; min-width: 80px;">
+        <div class="swatch" style="background: #854F0B;">
+          <div><div class="swatch-label" style="color:#FAC775;">Caution</div><div class="swatch-hex" style="color:#EF9F27;">#854F0B</div></div>
+        </div>
+        <div class="swatch-name">Changed / review needed</div>
+      </div>
+    </div>
+    <div style="font-size: 12px; color: var(--color-text-tertiary); line-height: 1.6;">Red is not decorative — it means something changed. Green = added. Red = removed. Amber = changed or risky. The palette earns its place in the UI.</div>
+  </div>
+
+  <div class="section">
+    <p class="sec-label">Typography</p>
+    <div class="type-row">
+      <div class="type-meta">Display · 32px · weight 500<br>Inter or DM Sans</div>
+      <div class="type-sample" style="font-size: 28px; font-weight: 500; letter-spacing: -0.5px; line-height: 1.2;">3 changes. 2 risks.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Heading · 18px · weight 500<br>Letter-spacing: −0.2px</div>
+      <div class="type-sample" style="font-size: 18px; font-weight: 500; letter-spacing: -0.2px;">Liability clause — modified</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Body · 14px · weight 400<br>Line-height: 1.65</div>
+      <div class="type-sample" style="font-size: 14px; line-height: 1.65; max-width: 360px;">The auto-renewal term was extended from 30 to 90 days. This may require legal sign-off before countersigning.</div>
+    </div>
+    <div class="type-row" style="border-bottom: none; padding-bottom: 0;">
+      <div class="type-meta">Mono · 12px · weight 400<br>Clause references / IDs</div>
+      <div class="type-sample" style="font-size: 12px; font-family: var(--font-mono); color: var(--color-text-secondary);">§ 8.4 — Termination for convenience</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="sec-label">UI style direction</p>
+    <div class="principle-grid" style="margin-bottom: 14px;">
+      <div class="principle">
+        <div class="p-title">Document-first</div>
+        <div class="p-desc">The contract is always the hero. Chrome is invisible. UI recedes, content leads.</div>
+      </div>
+      <div class="principle">
+        <div class="p-title">Color as signal</div>
+        <div class="p-desc">Colors only appear when they mean something. No decorative fills. No brand washes.</div>
+      </div>
+      <div class="principle">
+        <div class="p-title">Dense but calm</div>
+        <div class="p-desc">Tables and clause lists are information-dense. Generous line height keeps it readable.</div>
+      </div>
+      <div class="principle">
+        <div class="p-title">No illustrations</div>
+        <div class="p-desc">This is a professional tool. No empty states with cartoon robots. Just clear copy.</div>
+      </div>
+    </div>
+    <div class="nav-mock">
+      <span class="nav-logo">redl<span>i</span>nr</span>
+      <div class="nav-links">
+        <span class="nav-link">Contracts</span>
+        <span class="nav-link">Team</span>
+        <span class="nav-link">Settings</span>
+      </div>
+      <span class="nav-cta">Upload contract</span>
+    </div>
+    <div class="ui-card">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">MSA v4 vs v3 · Acme Corp</div>
+        <div>
+          <span class="ui-pill pill-added">+4 added</span>
+          <span class="ui-pill pill-removed">2 removed</span>
+          <span class="ui-pill pill-risk">1 risk</span>
+        </div>
+      </div>
+      <div class="diff-line">
+        <div class="diff-bar bar-warn"></div>
+        <div>
+          <div class="diff-text">Auto-renewal window changed from <s style="color: var(--color-text-tertiary);">30 days</s> to <strong style="font-weight: 500;">90 days</strong></div>
+          <div class="diff-clause">§ 12.2 · Renewal terms — review recommended</div>
+        </div>
+      </div>
+      <div class="diff-line">
+        <div class="diff-bar bar-add"></div>
+        <div>
+          <div class="diff-text">Dispute resolution clause added — arbitration in Delaware</div>
+          <div class="diff-clause">§ 15.1 · New clause</div>
+        </div>
+      </div>
+      <div class="diff-line">
+        <div class="diff-bar bar-rem"></div>
+        <div>
+          <div class="diff-text">Liability cap removed — previously 12 months of fees</div>
+          <div class="diff-clause">§ 9.4 · Risk: uncapped liability exposure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="sec-label">Logo concept</p>
+    <div class="logo-area">
+      <div class="logo-light">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="3" width="20" height="22" rx="2" fill="#F5F4F2" stroke="#0D1117" stroke-width="1.2"/>
+            <line x1="8" y1="9" x2="20" y2="9" stroke="#0D1117" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="8" y1="13" x2="20" y2="13" stroke="#0D1117" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="8" y1="17" x2="14" y2="17" stroke="#0D1117" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="16" y1="17" x2="20" y2="17" stroke="#C0392B" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size: 22px; font-weight: 500; letter-spacing: -0.5px; color: #0D1117;">redl<span style="color: #C0392B;">i</span>nr</span>
+        </div>
+        <div style="font-size: 11px; color: var(--color-text-tertiary);">Light mode / full lockup</div>
+      </div>
+
+      <div>
+        <div class="logo-dark-bg">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="3" width="20" height="22" rx="2" fill="#1a2030" stroke="#F0F0F0" stroke-width="1.2"/>
+            <line x1="8" y1="9" x2="20" y2="9" stroke="#F0F0F0" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="8" y1="13" x2="20" y2="13" stroke="#F0F0F0" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="8" y1="17" x2="14" y2="17" stroke="#F0F0F0" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="16" y1="17" x2="20" y2="17" stroke="#E74C3C" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size: 22px; font-weight: 500; letter-spacing: -0.5px; color: #F0F0F0;">redl<span style="color: #E74C3C;">i</span>nr</span>
+        </div>
+        <div style="font-size: 11px; color: var(--color-text-tertiary); text-align: center; margin-top: 8px;">Dark mode</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 16px;">
+      <div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.7;">
+        <strong style="font-weight: 500; color: var(--color-text-primary);">Logo concept rationale</strong> — The mark is a document with a single red rule across the last line — a literal redline. The wordmark uses a red "i" as a subtle pointer: the product identifies what others miss. No shield, no magnifying glass, no legal scales. Just the document and the mark.
+      </div>
+    </div>
+  </div>
+</div>

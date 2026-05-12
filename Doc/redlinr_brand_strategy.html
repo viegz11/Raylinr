@@ -1,0 +1,151 @@
+
+<style>
+  .rs { font-family: var(--font-sans); padding: 1.5rem 0; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em; text-transform: uppercase; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); margin-bottom: 10px; }
+  .section { margin-bottom: 2.5rem; }
+  .section-title { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin: 0 0 12px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 10px; }
+  .card-accent { border-left: 2.5px solid; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+  .card-accent.blue { border-left-color: #378ADD; }
+  .card-accent.teal { border-left-color: #1D9E75; }
+  .card-accent.coral { border-left-color: #D85A30; }
+  .card-accent.purple { border-left-color: #7F77DD; }
+  .card h3 { font-size: 14px; font-weight: 500; margin: 0 0 4px; color: var(--color-text-primary); }
+  .card p { font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6; }
+  .card .pain { font-size: 11px; font-weight: 500; color: #D85A30; margin-bottom: 6px; }
+  .pos-box { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; border: 0.5px solid var(--color-border-tertiary); }
+  .pos-box p { font-size: 15px; line-height: 1.75; color: var(--color-text-primary); margin: 0; }
+  .pos-box strong { font-weight: 500; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tagline-item { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 14px; font-weight: 500; color: var(--color-text-primary); display: flex; align-items: center; gap: 10px; }
+  .tagline-num { font-size: 11px; color: var(--color-text-tertiary); min-width: 18px; }
+  .pitch-box { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; border-left: 2.5px solid #7F77DD; border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .pitch-box p { font-size: 14px; line-height: 1.7; color: var(--color-text-primary); margin: 0; font-style: italic; }
+  .voice-row { display: flex; gap: 10px; }
+  .voice-do { flex: 1; background: #EAF3DE; border-radius: var(--border-radius-md); padding: 10px 14px; }
+  .voice-dont { flex: 1; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; border: 0.5px solid var(--color-border-tertiary); }
+  .voice-do .label { font-size: 11px; font-weight: 500; color: #3B6D11; margin-bottom: 6px; }
+  .voice-dont .label { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 6px; }
+  .voice-do li, .voice-dont li { font-size: 13px; color: var(--color-text-primary); margin-bottom: 3px; list-style: none; padding: 0; }
+  .voice-do li::before { content: '+ '; color: #3B6D11; font-weight: 500; }
+  .voice-dont li::before { content: '— '; color: var(--color-text-tertiary); }
+  ul { padding: 0; margin: 0; }
+  .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 10px; }
+  .diff-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; }
+  .diff-card .icon { font-size: 13px; font-weight: 500; color: #7F77DD; margin-bottom: 4px; }
+  .diff-card p { font-size: 13px; color: var(--color-text-primary); margin: 0; line-height: 1.55; }
+  .header-name { font-size: 26px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; letter-spacing: -0.5px; }
+  .header-sub { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 2rem; }
+  .vp-box { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; }
+  .vp-box p { font-size: 14px; line-height: 1.75; color: var(--color-text-primary); margin: 0; }
+</style>
+
+<div class="rs">
+  <h2 class="sr-only">Redlinr brand strategy document covering positioning, messaging pillars, voice, taglines, pitch, value proposition, and differentiation</h2>
+  <p class="header-name">Redlinr</p>
+  <p class="header-sub">Brand strategy — AI-powered contract comparison for B2B SaaS sales teams</p>
+
+  <div class="section">
+    <p class="section-title">Brand positioning</p>
+    <div class="pos-box">
+      <p>For <strong>Sales Directors and VP Sales at B2B SaaS companies</strong> who lose deals because contract negotiations drag on for weeks, Redlinr instantly surfaces what changed, what's risky, and what needs your attention — so your team closes faster, without waiting on legal.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Messaging pillars</p>
+    <div class="card card-accent blue">
+      <div class="pain">Pain: "I don't know what changed in the new version they sent."</div>
+      <h3>See every change in seconds, not hours</h3>
+      <p>Redlinr compares contract versions instantly, highlighting every addition, deletion, and substitution — no manual side-by-side reading required.</p>
+    </div>
+    <div class="card card-accent teal">
+      <div class="pain">Pain: "Legal takes 5 days to review a 3-page amendment."</div>
+      <h3>Stop letting legal be your bottleneck</h3>
+      <p>Flag the clauses that actually need attorney eyes. Skip the ones that don't. Your legal team reviews 20% of the document, not 100%.</p>
+    </div>
+    <div class="card card-accent coral">
+      <div class="pain">Pain: "My rep agreed to a term we never agreed to before."</div>
+      <h3>Know before you sign, not after</h3>
+      <p>Redlinr surfaces risky language — liability shifts, auto-renewal traps, penalty clauses — before your rep pushes the contract across the table.</p>
+    </div>
+    <div class="card card-accent purple">
+      <div class="pain">Pain: "We've done this deal three times. Why does it take the same amount of time?"</div>
+      <h3>Turn repeat deals into a repeatable process</h3>
+      <p>Benchmark incoming contracts against your standard terms. Know immediately how far off they are and what's non-negotiable for your team.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Brand voice & tone</p>
+    <div class="voice-row">
+      <div class="voice-do">
+        <div class="label">Sound like this</div>
+        <ul>
+          <li>Direct and specific</li>
+          <li>Confident, not arrogant</li>
+          <li>Outcome-first sentences</li>
+          <li>Plain English, no legalese</li>
+          <li>Respects the reader's time</li>
+        </ul>
+      </div>
+      <div class="voice-dont">
+        <div class="label">Never sound like this</div>
+        <ul>
+          <li>Revolutionary / game-changing</li>
+          <li>AI-powered everything</li>
+          <li>Legal-adjacent jargon</li>
+          <li>Vague benefits ("streamline")</li>
+          <li>Hedge language / passive voice</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Tagline options</p>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="tagline-item"><span class="tagline-num">01</span> Know what changed. Close faster.</div>
+      <div class="tagline-item"><span class="tagline-num">02</span> Stop losing deals to redlines.</div>
+      <div class="tagline-item"><span class="tagline-num">03</span> Every difference. Instant clarity.</div>
+      <div class="tagline-item"><span class="tagline-num">04</span> Contracts reviewed. Deals closed.</div>
+      <div class="tagline-item"><span class="tagline-num">05</span> Less waiting. More signing.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">One-line pitch — cold outreach</p>
+    <div class="pitch-box">
+      <p>"Most sales teams lose 10–14 days per deal waiting on contract reviews. Redlinr flags every change and risk in a contract the moment it arrives — so your reps know exactly what to push back on, and your legal team only touches what actually needs them."</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Value proposition</p>
+    <div class="vp-box">
+      <p>Redlinr cuts the time between "they sent a new version" and "we know what to do next" from days to under a minute. It shows sales teams precisely what changed between contract versions, flags clauses that carry risk, and benchmarks incoming terms against your standard deal structure — so reps negotiate with confidence and legal reviews only what matters.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-title">Differentiation — why this is not "another AI legal tool"</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="icon">Built for sales, not legal</div>
+        <p>The interface, language, and alerts are designed for reps and sales leaders — not paralegals. No training required.</p>
+      </div>
+      <div class="diff-card">
+        <div class="icon">Comparison, not generation</div>
+        <p>Redlinr doesn't write contracts or suggest boilerplate. It tells you exactly what changed between two real documents.</p>
+      </div>
+      <div class="diff-card">
+        <div class="icon">Risk in context</div>
+        <p>Flags risky clauses with plain-English explanations tied to deal impact — not generic legal warnings.</p>
+      </div>
+      <div class="diff-card">
+        <div class="icon">Speed as the product</div>
+        <p>The core promise isn't accuracy or compliance — it's time. Every feature is built to remove wait time from the deal cycle.</p>
+      </div>
+    </div>
+  </div>
+</div>

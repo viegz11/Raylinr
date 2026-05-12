@@ -1,0 +1,231 @@
+
+<style>
+  :root { --gap: 20px; }
+  .page { padding: 1.5rem 0; display: flex; flex-direction: column; gap: var(--gap); }
+  .section { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .sec-header { padding: 10px 16px; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; align-items: center; gap: 10px; }
+  .sec-label { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: .04em; }
+  .sec-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+  .sec-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .row { display: flex; align-items: flex-start; gap: 10px; }
+  .num { font-size: 12px; font-weight: 500; min-width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .item-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .item-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.5; }
+  .chip { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-weight: 500; margin-top: 4px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card-mini { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .card-mini-title { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .tag { font-size: 12px; padding: 3px 9px; border-radius: 4px; }
+  .divider { height: 0.5px; background: var(--color-border-tertiary); margin: 2px 0; }
+  .risk-row { display: flex; gap: 8px; align-items: flex-start; }
+  .risk-badge { font-size: 11px; font-weight: 500; padding: 2px 7px; border-radius: 4px; min-width: 44px; text-align: center; flex-shrink: 0; margin-top: 1px; }
+</style>
+<div class="page">
+
+  <!-- 1. Core Workflow -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-info);color:var(--color-text-info)">1</span>
+      <span class="sec-title">Core user workflow</span>
+    </div>
+    <div class="sec-body">
+      <div class="row">
+        <span class="num" style="background:var(--color-background-info);color:var(--color-text-info)">1</span>
+        <div><div class="item-title">Upload two contracts</div><div class="item-sub">Drag-drop or file picker. PDF or DOCX. Both files on one screen — no multi-step wizard.</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-info);color:var(--color-text-info)">2</span>
+        <div><div class="item-title">Processing (10–30 sec)</div><div class="item-sub">Simple progress indicator. Extract text, chunk by clause, run AI diff. No queues, synchronous for MVP.</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-info);color:var(--color-text-info)">3</span>
+        <div><div class="item-title">View the comparison report</div><div class="item-sub">Three-panel layout: left = original, right = redlined version, center = change summary list. Changes color-coded (added / removed / modified).</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-info);color:var(--color-text-info)">4</span>
+        <div><div class="item-title">Review AI-flagged items</div><div class="item-sub">A prioritized list of "watch out" clauses (payment terms, liability caps, termination, auto-renewal). Each item links to the exact clause in the diff.</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-info);color:var(--color-text-info)">5</span>
+        <div><div class="item-title">Export or share</div><div class="item-sub">One-click export to PDF summary or copy shareable link. Done. Sales Director sends to legal or uses in negotiation.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Must-Have Features -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-success);color:var(--color-text-success)">2</span>
+      <span class="sec-title">Must-have features (MVP only)</span>
+    </div>
+    <div class="sec-body">
+      <div class="row">
+        <span class="num" style="background:var(--color-background-success);color:var(--color-text-success)">F1</span>
+        <div><div class="item-title">Dual-file upload + text extraction</div><div class="item-sub">PDF & DOCX parsing. If text extraction fails, show a clear error — don't silently produce garbage output.</div><span class="chip" style="background:var(--color-background-success);color:var(--color-text-success)">Foundational</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-success);color:var(--color-text-success)">F2</span>
+        <div><div class="item-title">Clause-level diff (visual redline)</div><div class="item-sub">Side-by-side view with added/removed/changed text highlighted. Green = added, red = removed, yellow = modified. This is the core value prop.</div><span class="chip" style="background:var(--color-background-success);color:var(--color-text-success)">Core value</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-success);color:var(--color-text-success)">F3</span>
+        <div><div class="item-title">AI risk summary (5–8 flags)</div><div class="item-sub">Short-form flags on the highest-risk changes only: payment terms, liability, IP ownership, termination, auto-renewal, SLA penalties. Plain English, 1–2 sentences each.</div><span class="chip" style="background:var(--color-background-success);color:var(--color-text-success)">Differentiator</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-success);color:var(--color-text-success)">F4</span>
+        <div><div class="item-title">Change summary panel</div><div class="item-sub">Clickable list of all detected changes, grouped by section (Payment, Term, Liability, etc.). Clicking a change jumps to it in the diff view.</div><span class="chip" style="background:var(--color-background-success);color:var(--color-text-success)">Navigation</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-success);color:var(--color-text-success)">F5</span>
+        <div><div class="item-title">PDF export of comparison report</div><div class="item-sub">One-click export. Needed so users can forward to legal or attach to a deal thread. Minimum viable: just the summary + flagged items.</div><span class="chip" style="background:var(--color-background-success);color:var(--color-text-success)">Shareability</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-success);color:var(--color-text-success)">F6</span>
+        <div><div class="item-title">No-auth upload (magic link or session)</div><div class="item-sub">Don't gate behind signup for MVP. Let users try immediately. Capture email only if they want to save/share the report. Friction kills early adoption.</div><span class="chip" style="background:var(--color-background-success);color:var(--color-text-success)">Adoption</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Excluded -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-danger);color:var(--color-text-danger)">3</span>
+      <span class="sec-title">Excluded from MVP</span>
+    </div>
+    <div class="sec-body">
+      <div class="cols">
+        <div class="card-mini">
+          <div class="card-mini-title">Cut entirely</div>
+          <div class="tag-list">
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">User accounts / auth</span>
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">Contract templates library</span>
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">Version history</span>
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">In-app comments / redline suggestions</span>
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">CRM integrations</span>
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">Team collaboration</span>
+            <span class="tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">Multi-contract comparison</span>
+          </div>
+        </div>
+        <div class="card-mini">
+          <div class="card-mini-title">Defer to v2</div>
+          <div class="tag-list">
+            <span class="tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">Slack / email notifications</span>
+            <span class="tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">Legal playbook config</span>
+            <span class="tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">Risk scoring / percentage</span>
+            <span class="tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">DOCX export (tracked changes)</span>
+            <span class="tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">API access</span>
+            <span class="tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">Mobile-optimized view</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. AI Comparison -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-info);color:var(--color-text-info)">4</span>
+      <span class="sec-title">Simplest viable AI comparison</span>
+    </div>
+    <div class="sec-body">
+      <div class="cols">
+        <div class="card-mini">
+          <div class="card-mini-title">Rule-based (fast, free)</div>
+          <div class="item-sub" style="font-size:13px">Text extraction → sentence tokenization → Myers diff algorithm for clause-level changes. No AI needed for the visual redline. Deterministic and fast.</div>
+        </div>
+        <div class="card-mini">
+          <div class="card-mini-title">AI layer (Claude / GPT-4o)</div>
+          <div class="item-sub" style="font-size:13px">Send only the <em>changed clauses</em> to the LLM, not the full contract. Prompt: "identify which of these changes are material risks for the buyer." Keeps costs low, latency under 10s.</div>
+        </div>
+      </div>
+      <div class="card-mini" style="background:var(--color-background-secondary)">
+        <div class="card-mini-title">Acceptable accuracy for MVP</div>
+        <div class="item-sub" style="font-size:13px">Misses some edge-case risk flags = acceptable. False positive risk flags = acceptable (user can dismiss). Misidentifies which text changed (wrong diff) = not acceptable — this breaks trust instantly. Prioritize diff accuracy over AI insight quality.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Technical Shortcuts -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-warning);color:var(--color-text-warning)">5</span>
+      <span class="sec-title">Technical shortcuts</span>
+    </div>
+    <div class="sec-body">
+      <div class="row">
+        <span class="num" style="background:var(--color-background-warning);color:var(--color-text-warning)">→</span>
+        <div><div class="item-title">No backend infra — use Vercel + serverless</div><div class="item-sub">Edge function handles upload + AI call. No servers to manage. Use Vercel Blob for temp file storage (auto-deleted after 24h).</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-warning);color:var(--color-text-warning)">→</span>
+        <div><div class="item-title">PDF export = html-to-pdf (Puppeteer or React-PDF)</div><div class="item-sub">Don't build a custom PDF renderer. Use an existing library to snapshot the report view.</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-warning);color:var(--color-text-warning)">→</span>
+        <div><div class="item-title">DOCX parsing = mammoth.js (client-side)</div><div class="item-sub">Run in the browser. Avoids server round-trip for extraction. Output is clean HTML, easy to diff.</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-warning);color:var(--color-text-warning)">→</span>
+        <div><div class="item-title">Section classification = keyword heuristics first</div><div class="item-sub">Detect "Payment", "Liability", "Term" sections by header keyword matching before spending tokens on AI classification.</div></div>
+      </div>
+      <div class="row">
+        <span class="num" style="background:var(--color-background-warning);color:var(--color-text-warning)">→</span>
+        <div><div class="item-title">For scanned PDFs — fail gracefully</div><div class="item-sub">Show a clear "this PDF appears to be scanned — we can't process image-based PDFs yet." Don't promise OCR in week 1.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Success Criteria -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-success);color:var(--color-text-success)">6</span>
+      <span class="sec-title">MVP success criteria</span>
+    </div>
+    <div class="sec-body">
+      <div class="cols">
+        <div class="card-mini">
+          <div class="card-mini-title">Quantitative signals</div>
+          <div class="item-sub" style="font-size:13px;margin-top:4px">
+            ≥ 3 of 5 beta users finish a comparison without help<br><br>
+            ≥ 60% export or share the report<br><br>
+            Time from upload → first flag reviewed &lt; 3 min<br><br>
+            At least 1 user says "I'd pay for this"
+          </div>
+        </div>
+        <div class="card-mini">
+          <div class="card-mini-title">Qualitative signals</div>
+          <div class="item-sub" style="font-size:13px;margin-top:4px">
+            Users describe the flags as "useful" or "something I'd have missed"<br><br>
+            Users forward the report to someone else unsolicited<br><br>
+            Users return to try it on a second contract
+          </div>
+        </div>
+      </div>
+      <div class="card-mini" style="border-left: 2px solid var(--color-border-danger); border-radius: 0; background:transparent; padding-left:12px">
+        <div class="item-sub" style="font-size:13px">Kill criteria: if users consistently say the diff is wrong or misleading, stop and fix the extraction pipeline before adding any AI features.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Risks -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-label" style="background:var(--color-background-danger);color:var(--color-text-danger)">7</span>
+      <span class="sec-title">Biggest risks</span>
+    </div>
+    <div class="sec-body">
+      <div class="risk-row"><span class="risk-badge" style="background:var(--color-background-danger);color:var(--color-text-danger)">High</span><div><div class="item-title">Scanned / image PDFs</div><div class="item-sub">Most enterprise contracts are PDFs of scans. Text extraction returns nothing. Kills the demo. Mitigation: detect early, show clear error, add OCR (Tesseract) in week 2.</div></div></div>
+      <div class="risk-row"><span class="risk-badge" style="background:var(--color-background-danger);color:var(--color-text-danger)">High</span><div><div class="item-title">AI hallucinating risk flags</div><div class="item-sub">LLM invents a risk that doesn't exist. Sales Director acts on it, looks foolish to legal. Mitigation: always anchor each flag to a specific quoted clause. Never generate abstract risk statements.</div></div></div>
+      <div class="risk-row"><span class="risk-badge" style="background:var(--color-background-warning);color:var(--color-text-warning)">Med</span><div><div class="item-title">Poor clause segmentation</div><div class="item-sub">Contracts vary wildly in formatting. If you diff at the wrong granularity (word-level vs clause-level), the redline looks noisy and unusable. Mitigation: test on 10 real contracts before launch.</div></div></div>
+      <div class="risk-row"><span class="risk-badge" style="background:var(--color-background-warning);color:var(--color-text-warning)">Med</span><div><div class="item-title">User trust in AI output</div><div class="item-sub">Sales Directors may not trust or act on AI flags without legal backing. Mitigation: frame output as "things to ask your lawyer about" — not legal advice. Never use the word "legal analysis."</div></div></div>
+      <div class="risk-row"><span class="risk-badge" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">Low</span><div><div class="item-title">Data confidentiality concern</div><div class="item-sub">Enterprise users won't upload real contracts to an unknown tool. Mitigation: add a "files are deleted within 1 hour" notice on the upload screen. Don't store contracts. Later: on-premise option.</div></div></div>
+    </div>
+  </div>
+
+</div>
