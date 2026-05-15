@@ -57,6 +57,9 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-md mx-auto relative z-20">
       <input
         type="email"
+        name="email"
+        id="email"
+        autoComplete="email"
         placeholder="Work email *"
         value={email}
         onChange={e => setEmail(e.target.value)}
@@ -66,6 +69,9 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
 
       <input
         type="text"
+        name="company"
+        id="company"
+        autoComplete="organization"
         placeholder="Company name"
         value={company}
         onChange={e => setCompany(e.target.value)}
@@ -73,6 +79,9 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
       />
 
       <select
+        name="role"
+        id="role"
+        autoComplete="organization-title"
         value={role}
         onChange={e => setRole(e.target.value)}
         className="w-full bg-white dark:bg-black/20 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3.5 text-brand-text-primary placeholder:text-brand-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all appearance-none"
