@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/analytics/components/AnalyticsProvider";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,6 +30,7 @@ export default function RootLayout({
         <Footer />
         <AnalyticsProvider />
         <CookieConsent />
+        <SpeedInsights />
       </body>
     </html>
   );
