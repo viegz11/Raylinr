@@ -47,8 +47,8 @@ export function attachPerformanceTracking(): () => void {
 
   const observers: PerformanceObserver[] = [];
 
+  // 1. TTFB (Time to First Byte)
   try {
-    // 1. TTFB (Time to First Byte)
     const navEntries = performance.getEntriesByType('navigation');
     if (navEntries.length > 0) {
       const nav = navEntries[0] as PerformanceNavigationTiming;
@@ -66,8 +66,12 @@ export function attachPerformanceTracking(): () => void {
         }
       }
     }
+  } catch (error) {
+    // Fail silently
+  }
 
-    // 2. FCP (First Contentful Paint)
+  // 2. FCP (First Contentful Paint)
+  try {
     const fcpObserver = new PerformanceObserver((entryList) => {
       for (const entry of entryList.getEntries()) {
         if (entry.name === 'first-contentful-paint') {
@@ -77,9 +81,13 @@ export function attachPerformanceTracking(): () => void {
     });
     fcpObserver.observe({ type: 'paint', buffered: true });
     observers.push(fcpObserver);
+  } catch (error) {
+    // Fail silently
+  }
 
-    // 3. LCP (Largest Contentful Paint)
-    let lcpValue = 0;
+  // 3. LCP (Largest Contentful Paint)
+  let lcpValue = 0;
+  try {
     const lcpObserver = new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
@@ -87,8 +95,12 @@ export function attachPerformanceTracking(): () => void {
     });
     lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
     observers.push(lcpObserver);
+  } catch (error) {
+    // Fail silently
+  }
 
-    // 4. FID (First Input Delay)
+  // 4. FID (First Input Delay)
+  try {
     const fidObserver = new PerformanceObserver((entryList) => {
       for (const entry of entryList.getEntries()) {
         const firstInput = entry as PerformanceEventTiming;
@@ -98,9 +110,13 @@ export function attachPerformanceTracking(): () => void {
     });
     fidObserver.observe({ type: 'first-input', buffered: true });
     observers.push(fidObserver);
+  } catch (error) {
+    // Fail silently
+  }
 
-    // 5. CLS (Cumulative Layout Shift)
-    let clsValue = 0;
+  // 5. CLS (Cumulative Layout Shift)
+  let clsValue = 0;
+  try {
     const clsObserver = new PerformanceObserver((entryList) => {
       for (const entry of entryList.getEntries()) {
         const layoutShift = entry as { value?: number; hadRecentInput?: boolean };
@@ -111,33 +127,44 @@ export function attachPerformanceTracking(): () => void {
     });
     clsObserver.observe({ type: 'layout-shift', buffered: true });
     observers.push(clsObserver);
-
-    // Document Visibility / Page unload handlers to capture dynamic metrics
-    const handleVisibilityChange = (): void => {
-      if (document.visibilityState === 'hidden') {
-        // Report final LCP and CLS values when user leaves
-        if (lcpValue > 0) {
-          sendMetric('LCP', Math.round(lcpValue));
-          lcpValue = 0; // Prevent reporting multiple times
-        }
-        if (clsValue > 0) {
-          // CLS values are small decimals, scale to 3 decimals
-          sendMetric('CLS', Math.round(clsValue * 1000) / 1000);
-          clsValue = 0;
-        }
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      for (const observer of observers) {
-        observer.disconnect();
-      }
-    };
   } catch (error) {
-    // Fail silently in unsupported browsers
-    return () => {};
+    // Fail silently
   }
+
+  // Document Visibility / Page unload handlers to capture dynamic metrics
+  const handleVisibilityChange = (): void => {
+    if (document.visibilityState === 'hidden') {
+      // Report final LCP and CLS values when user leaves
+      if (lcpValue > 0) {
+        sendMetric('LCP', Math.round(lcpValue));
+        lcpValue = 0; // Prevent reporting multiple times
+      }
+      if (clsValue > 0) {
+        // CLS values are small decimals, scale to 3 decimals
+        sendMetric('CLS', Math.round(clsValue * 1000) / 1000);
+        clsValue = 0;
+      }
+    }
+  };
+
+  try {
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+  } catch (error) {
+    // Fail silently
+  }
+
+  return () => {
+    try {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    } catch (error) {
+      // Fail silently
+    }
+    for (const observer of observers) {
+      try {
+        observer.disconnect();
+      } catch (error) {
+        // Fail silently
+      }
+    }
+  };
 }

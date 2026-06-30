@@ -13,7 +13,7 @@
 
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import { analytics } from '../index';
 import type { AnalyticsEventName, AnalyticsEventMap } from '../types';
 
@@ -22,15 +22,24 @@ export function useTrackClick<E extends AnalyticsEventName>(
   properties: E extends keyof AnalyticsEventMap ? AnalyticsEventMap[E] : Record<string, unknown>,
   originalHandler?: (e: React.MouseEvent) => void
 ): (e: React.MouseEvent) => void {
+  const eventRef = useRef(event);
+  const propertiesRef = useRef(properties);
+  const handlerRef = useRef(originalHandler);
+
+  // Sync refs on every render
+  eventRef.current = event;
+  propertiesRef.current = properties;
+  handlerRef.current = originalHandler;
+
   return useCallback(
     (e: React.MouseEvent) => {
-      analytics.track(event, properties);
+      analytics.track(eventRef.current, propertiesRef.current);
 
-      if (originalHandler) {
-        originalHandler(e);
+      if (handlerRef.current) {
+        handlerRef.current(e);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [event, originalHandler]
+    []
   );
 }
+

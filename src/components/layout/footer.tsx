@@ -19,6 +19,7 @@ export function Footer() {
                 alt="raylinr Logo" 
                 width={40} 
                 height={40} 
+                style={{ width: 'auto', height: 'auto' }}
                 className="h-10 w-auto object-contain dark:hidden"
               />
               <Image 
@@ -26,6 +27,7 @@ export function Footer() {
                 alt="raylinr Logo" 
                 width={40} 
                 height={40} 
+                style={{ width: 'auto', height: 'auto' }}
                 className="h-10 w-auto object-contain hidden dark:block"
               />
               <span className="text-2xl font-bold tracking-tight text-brand-text-primary">

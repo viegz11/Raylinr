@@ -18,7 +18,7 @@ export function Navbar() {
               alt="raylinr Logo"
               width={40}
               height={40}
-              style={{ width: 'auto' }}
+              style={{ width: 'auto', height: 'auto' }}
               className="h-10 w-auto object-contain dark:hidden"
               priority
             />
@@ -27,7 +27,7 @@ export function Navbar() {
               alt="raylinr Logo"
               width={40}
               height={40}
-              style={{ width: 'auto' }}
+              style={{ width: 'auto', height: 'auto' }}
               className="h-10 w-auto object-contain hidden dark:block"
               priority
             />

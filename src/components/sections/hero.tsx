@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Zap, FileText, Lock, Play } from "lucide-react";
+import { ArrowRight, Shield, Zap, FileText, Lock, Play, AlertTriangle, Info } from "lucide-react";
 import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
 import { useAnalytics } from "@/analytics/hooks/useAnalytics";
@@ -11,6 +12,7 @@ import { AnalyticsEvent } from "@/analytics/types";
 export function Hero() {
   const { track } = useAnalytics();
   const sectionRef = useTrackVisibility('hero', 'Hero Section');
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
   return (
     <section ref={sectionRef} className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden">
@@ -126,44 +128,67 @@ export function Hero() {
               </div>
 
               {/* Redlined Document */}
-              <div className="p-8 bg-brand-surface overflow-hidden relative">
+              <div className="p-8 bg-brand-surface relative">
                 <div className="flex items-center gap-2 mb-6">
                   <span className="text-xs font-semibold px-2 py-1 bg-brand-accent/10 text-brand-accent rounded">Redlined Version (Received Today)</span>
                 </div>
                 <div className="space-y-4 text-sm text-brand-text-primary font-serif leading-relaxed">
-                  <p>3.1 Payment Terms. Customer shall pay all undisputed invoices within <span className="bg-brand-risk/20 text-brand-risk px-1 border-b border-brand-risk font-semibold">ninety (90)</span> days of receipt.</p>
-                  <p>7.2 Liability Cap. In no event shall either party's aggregate liability exceed <span className="bg-brand-warning/20 text-brand-warning px-1 border-b border-brand-warning font-semibold">two times (2x) the total fees paid by Customer</span> in the twelve (12) months preceding the claim.</p>
+                  <p>
+                    3.1 Payment Terms. Customer shall pay all undisputed invoices within{' '}
+                    <span 
+                      className="relative inline-block cursor-pointer bg-brand-risk/20 text-brand-risk px-1 border-b border-brand-risk font-semibold"
+                      onMouseEnter={() => setActiveTooltip("net90")}
+                      onMouseLeave={() => setActiveTooltip(null)}
+                    >
+                      ninety (90)
+                      
+                      {/* Tooltip */}
+                      {activeTooltip === "net90" && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 glass bg-brand-surface p-4 rounded-xl shadow-xl z-50 border-l-4 border-l-brand-risk cursor-default font-sans text-left leading-normal"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-xs font-bold text-brand-risk uppercase tracking-wider">High Risk</span>
+                            <span className="text-[10px] text-brand-text-secondary">Clause 3.1</span>
+                          </div>
+                          <p className="text-sm text-brand-text-primary font-medium mb-1">Payment terms extended to Net 90</p>
+                          <p className="text-xs text-brand-text-secondary leading-normal">You have never accepted beyond Net 45 in the past 3 years. Pushes revenue recognition to next quarter.</p>
+                        </motion.div>
+                      )}
+                    </span>{' '}
+                    days of receipt.
+                  </p>
+                  <p>
+                    7.2 Liability Cap. In no event shall either party's aggregate liability exceed{' '}
+                    <span 
+                      className="relative inline-block cursor-pointer bg-brand-warning/20 text-brand-warning px-1 border-b border-brand-warning font-semibold"
+                      onMouseEnter={() => setActiveTooltip("liability")}
+                      onMouseLeave={() => setActiveTooltip(null)}
+                    >
+                      two times (2x) the total fees paid by Customer
+                      
+                      {/* Tooltip */}
+                      {activeTooltip === "liability" && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 glass bg-brand-surface p-4 rounded-xl shadow-xl z-50 border-l-4 border-l-brand-warning cursor-default font-sans text-left leading-normal"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-xs font-bold text-brand-warning uppercase tracking-wider">Medium Risk</span>
+                            <span className="text-[10px] text-brand-text-secondary">Clause 7.2</span>
+                          </div>
+                          <p className="text-sm text-brand-text-primary font-medium mb-1">Liability cap increased to 2x</p>
+                          <p className="text-xs text-brand-text-secondary leading-normal">Standard playbook allows 1x. This exposes the company to double the standard liability.</p>
+                        </motion.div>
+                      )}
+                    </span>{' '}
+                    in the twelve (12) months preceding the claim.
+                  </p>
                   <p>8.1 Termination. Either party may terminate this Agreement for convenience with thirty (30) days prior written notice.</p>
                 </div>
-
-                {/* Floating AI Tooltips */}
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9, x: 20 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  transition={{ delay: 1.2, duration: 0.4 }}
-                  className="absolute top-20 -right-6 glass bg-brand-surface border-l-4 border-l-brand-risk p-4 rounded-xl shadow-xl w-64 z-20"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold text-brand-risk uppercase tracking-wider">High Risk</span>
-                    <span className="text-[10px] text-brand-text-secondary">Clause 3.1</span>
-                  </div>
-                  <p className="text-sm text-brand-text-primary font-medium mb-1">Payment terms extended to Net 90</p>
-                  <p className="text-xs text-brand-text-secondary">You have never accepted beyond Net 45 in the past 3 years. Pushes revenue recognition to next quarter.</p>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9, x: 20 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  transition={{ delay: 1.6, duration: 0.4 }}
-                  className="absolute top-52 -right-4 glass bg-brand-surface border-l-4 border-l-brand-warning p-4 rounded-xl shadow-xl w-64 z-20"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold text-brand-warning uppercase tracking-wider">Medium Risk</span>
-                    <span className="text-[10px] text-brand-text-secondary">Clause 7.2</span>
-                  </div>
-                  <p className="text-sm text-brand-text-primary font-medium mb-1">Liability cap increased to 2x</p>
-                  <p className="text-xs text-brand-text-secondary">Standard playbook allows 1x. This exposes the company to double the standard liability.</p>
-                </motion.div>
               </div>
             </div>
           </div>

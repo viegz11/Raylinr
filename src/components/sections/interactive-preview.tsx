@@ -64,7 +64,7 @@ export function InteractivePreview() {
             
             {/* Clause 1 */}
             <div className="relative">
-              <p className="text-sm md:text-base">
+              <div className="text-sm md:text-base">
                 <strong className="font-bold mr-2 text-brand-text-primary">4.2 IP Ownership.</strong> 
                 Customer retains all rights to Customer Data. Provider retains all rights to the Services and any 
                 <span 
@@ -79,9 +79,9 @@ export function InteractivePreview() {
                   {/* Tooltip */}
                   {activeTooltip === "ip" && (
                     <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 glass bg-brand-surface p-4 rounded-xl shadow-xl z-50 border-l-4 border-l-brand-warning cursor-default"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 glass bg-brand-surface p-4 rounded-xl shadow-xl z-50 border-l-4 border-l-brand-warning cursor-default"
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <AlertTriangle className="w-4 h-4 text-brand-warning" />
@@ -93,12 +93,12 @@ export function InteractivePreview() {
                   )}
                 </span>
                 during the Term.
-              </p>
+              </div>
             </div>
 
             {/* Clause 2 */}
             <div className="relative">
-              <p className="text-sm md:text-base">
+              <div className="text-sm md:text-base">
                 <strong className="font-bold mr-2 text-brand-text-primary">9.1 Indemnification.</strong> 
                 Provider shall indemnify Customer against third-party claims alleging that the Services infringe any intellectual property right, 
                 <span 
@@ -127,7 +127,7 @@ export function InteractivePreview() {
                   )}
                 </span>
                 .
-              </p>
+              </div>
             </div>
 
             {/* Clause 3 */}
