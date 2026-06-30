@@ -3,12 +3,17 @@
 import { motion } from "framer-motion";
 import { Info, AlertTriangle, ShieldCheck } from "lucide-react";
 import { useState } from "react";
+import { useAnalytics } from "@/analytics/hooks/useAnalytics";
+import { useTrackVisibility } from "@/analytics/hooks/useTrackVisibility";
+import { AnalyticsEvent } from "@/analytics/types";
 
 export function InteractivePreview() {
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+  const { track } = useAnalytics();
+  const sectionRef = useTrackVisibility('demo', 'Interactive Demo');
 
   return (
-    <section id="demo" className="py-24 bg-brand-bg relative overflow-hidden border-t border-black/5">
+    <section ref={sectionRef} id="demo" className="py-24 bg-brand-bg relative overflow-hidden border-t border-black/5">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-bg z-0" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -43,8 +48,14 @@ export function InteractivePreview() {
               </span>
             </div>
             <div className="flex gap-2">
-              <button className="px-3 py-1.5 text-xs font-medium text-brand-text-secondary hover:text-brand-text-primary transition-colors">Compare</button>
-              <button className="px-3 py-1.5 text-xs font-medium bg-black/5 rounded hover:bg-black/10 transition-colors">Export</button>
+              <button
+                className="px-3 py-1.5 text-xs font-medium text-brand-text-secondary hover:text-brand-text-primary transition-colors"
+                onClick={() => track(AnalyticsEvent.FEATURE_CLICK, { feature_name: 'compare', section: 'interactive_preview' })}
+              >Compare</button>
+              <button
+                className="px-3 py-1.5 text-xs font-medium bg-black/5 rounded hover:bg-black/10 transition-colors"
+                onClick={() => track(AnalyticsEvent.FEATURE_CLICK, { feature_name: 'export', section: 'interactive_preview' })}
+              >Export</button>
             </div>
           </div>
 

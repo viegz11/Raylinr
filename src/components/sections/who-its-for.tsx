@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp, ShoppingCart, Scale } from "lucide-react";
+import { useTrackVisibility } from "@/analytics/hooks/useTrackVisibility";
 
 const audiences = [
   {
@@ -25,8 +26,10 @@ const audiences = [
 ];
 
 export function WhoItsFor() {
+  const sectionRef = useTrackVisibility('who_its_for', 'Who Its For');
+
   return (
-    <section className="py-24 bg-brand-bg relative">
+    <section ref={sectionRef} className="py-24 bg-brand-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 

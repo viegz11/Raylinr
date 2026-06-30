@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Clock, EyeOff, Scale, HelpCircle } from "lucide-react";
+import { useTrackVisibility } from "@/analytics/hooks/useTrackVisibility";
 
 const painPoints = [
   {
@@ -27,8 +28,10 @@ const painPoints = [
 ];
 
 export function SocialProof() {
+  const sectionRef = useTrackVisibility('social_proof', 'Social Proof');
+
   return (
-    <section className="py-24 bg-brand-bg relative border-t border-black/">
+    <section ref={sectionRef} className="py-24 bg-brand-bg relative border-t border-black/">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 

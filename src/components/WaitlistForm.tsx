@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useAnalytics } from '@/analytics/hooks/useAnalytics'
+import { AnalyticsEvent } from '@/analytics/types'
 
 interface FormState {
   status: 'idle' | 'loading' | 'success' | 'error'
@@ -12,10 +14,14 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
   const [company, setCompany] = useState('')
   const [role, setRole] = useState('')
   const [form, setForm] = useState<FormState>({ status: 'idle', message: '' })
+  const { track } = useAnalytics()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
+
+    // Track waitlist click (form submission intent)
+    track(AnalyticsEvent.WAITLIST_CLICK, { source })
 
     setForm({ status: 'loading', message: '' })
 
@@ -30,14 +36,35 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
 
       if (data.success) {
         setForm({ status: 'success', message: data.message })
+
+        // Track waitlist success — only domain, never full email
+        const emailDomain = email.includes('@') ? email.split('@')[1] : 'unknown'
+        track(AnalyticsEvent.WAITLIST_SUCCESS, {
+          source,
+          email_domain: emailDomain,
+          is_duplicate: data.duplicate === true,
+        })
+
         setEmail('')
         setCompany('')
         setRole('')
       } else {
         setForm({ status: 'error', message: data.error ?? 'Something went wrong.' })
+
+        // Track waitlist error
+        track(AnalyticsEvent.WAITLIST_ERROR, {
+          source,
+          error_type: 'api_error',
+        })
       }
     } catch {
       setForm({ status: 'error', message: 'Network error. Please try again.' })
+
+      // Track network error
+      track(AnalyticsEvent.WAITLIST_ERROR, {
+        source,
+        error_type: 'network_error',
+      })
     }
   }
 
@@ -123,3 +150,4 @@ export default function WaitlistForm({ source = 'landing_page' }: { source?: str
     </form>
   )
 }
+

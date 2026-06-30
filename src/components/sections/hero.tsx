@@ -4,10 +4,16 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Zap, FileText, Lock, Play } from "lucide-react";
 import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
+import { useAnalytics } from "@/analytics/hooks/useAnalytics";
+import { useTrackVisibility } from "@/analytics/hooks/useTrackVisibility";
+import { AnalyticsEvent } from "@/analytics/types";
 
 export function Hero() {
+  const { track } = useAnalytics();
+  const sectionRef = useTrackVisibility('hero', 'Hero Section');
+
   return (
-    <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden">
+    <section ref={sectionRef} className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden">
       {/* Background gradients */}
       <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-brand-accent/5 to-transparent pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-brand-accent/30 rounded-full blur-[120px] pointer-events-none" />
@@ -57,6 +63,7 @@ export function Hero() {
               <Link
                 href="#demo"
                 className="w-full sm:w-auto px-8 py-3 glass text-brand-text-primary rounded-xl font-bold text-base hover:bg-black/5 transition-all flex items-center justify-center gap-2"
+                onClick={() => track(AnalyticsEvent.DEMO_CLICK, { location: 'hero' })}
               >
                 <Play className="w-4 h-4" /> Watch Demo
               </Link>

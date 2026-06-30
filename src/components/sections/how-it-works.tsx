@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { UploadCloud, Sparkles, Share2 } from "lucide-react";
+import { useTrackVisibility } from "@/analytics/hooks/useTrackVisibility";
 
 const steps = [
   {
@@ -25,8 +26,10 @@ const steps = [
 ];
 
 export function HowItWorks() {
+  const sectionRef = useTrackVisibility('how_it_works', 'How It Works');
+
   return (
-    <section id="how-it-works" className="py-24 relative overflow-hidden bg-brand-surface/30">
+    <section ref={sectionRef} id="how-it-works" className="py-24 relative overflow-hidden bg-brand-surface/30">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-accent/5 via-transparent to-transparent pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

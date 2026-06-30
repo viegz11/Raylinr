@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { AnalyticsProvider } from "@/analytics/components/AnalyticsProvider";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,6 +27,8 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow flex flex-col">{children}</main>
         <Footer />
+        <AnalyticsProvider />
+        <CookieConsent />
       </body>
     </html>
   );

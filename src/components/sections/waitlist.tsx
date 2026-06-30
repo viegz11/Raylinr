@@ -3,11 +3,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck, Flame } from "lucide-react";
 import WaitlistForm from "@/components/WaitlistForm";
+import { useTrackVisibility } from "@/analytics/hooks/useTrackVisibility";
 
 export function Waitlist() {
+  const sectionRef = useTrackVisibility('waitlist', 'Waitlist CTA');
 
   return (
-    <section id="waitlist" className="py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="waitlist" className="py-32 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 bg-brand-bg z-0" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[500px] bg-brand-accent/20 rounded-full blur-[120px] pointer-events-none z-0" />
